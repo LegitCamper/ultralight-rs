@@ -1,8 +1,0 @@
-/frontend/**/*
-/frontend/*
-!/frontend/package.json
-/frontend/node_modules/**/*
-/frontend/.svelte-kit/**/*
-/crates/ultralight-sys/wrapped/ultralight/**/*
-/crates/ultralight/shaders/**/*
-/crates/ultralight/shaders/*
