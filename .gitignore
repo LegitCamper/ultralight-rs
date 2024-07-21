@@ -1,6 +1,6 @@
 **/target
 /Cargo.lock
-logs.txt
+**/logs.txt
 /AppCore.dll
 /Ultralight.dll
 /UltralightCore.dll

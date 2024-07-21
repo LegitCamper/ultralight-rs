@@ -7,23 +7,23 @@ rusty_fork_test! {
     #[test]
     fn creates_view() {
         ULPlatformBuilder::new()
-            .enable_file_logger("./logs.txt")
+            .enable_file_logger("../logs.txt")
             .enable_platform_file_system()
             .enable_platform_font_loader()
             .build();
         let renderer = ULRendererBuilder::new()
             .set_resource_path_prefix({
-                let mut newthing = std::env::current_dir().unwrap();
+            let mut newthing: std::path::PathBuf = std::env::var_os("OUT_DIR").unwrap().into();
                 newthing.pop();
                 newthing.pop();
-                newthing.push("target");
-                newthing.push("debug");
-                newthing.push("deps");
-                newthing.push("resources\\");
+                newthing.pop();
+                newthing.push("resources/");
+
+            println!("{:?}", newthing);
 
                 newthing
             })
-            .build();
+             .build();
         let _ = ULViewBuilder::new(&renderer)
             .set_width(480)
             .set_height(480)
@@ -38,7 +38,7 @@ rusty_fork_test! {
             .unwrap()
             .block_on(async {
                 ULPlatformBuilder::new()
-                    .enable_file_logger("./logs.txt")
+                    .enable_file_logger("../logs.txt")
                     .enable_platform_file_system()
                     .enable_platform_font_loader()
                     .build();

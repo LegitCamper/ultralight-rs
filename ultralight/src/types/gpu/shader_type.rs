@@ -31,8 +31,8 @@ impl TryFrom<i32> for ShaderType {
     #[inline(always)]
     fn try_from(st: i32) -> Result<Self, Self::Error> {
         match st {
-            1 => Ok(ShaderType::Fill),
-            2 => Ok(ShaderType::FillPath),
+            0 => Ok(ShaderType::Fill),
+            1 => Ok(ShaderType::FillPath),
             _ => Err(ULError::ShaderUnsupportedType),
         }
     }
